@@ -1,1 +1,1 @@
-a self imposed fractal zoom program
+a self imposed fractal zoom project using matplotlib
