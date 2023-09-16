@@ -4,7 +4,7 @@ arrows for navigation
 zoom function
 ultimate goal: navigate and zoom a fractal
 
-FINISH: 
+FINISHED WORKS: 
 popup
 load fractal
 '''
