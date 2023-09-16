@@ -1,1 +1,1 @@
-# zoom_and_move_fractal
+a self imposed fractal zoom program
