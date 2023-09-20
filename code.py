@@ -1,7 +1,7 @@
 '''
 TODO: 
-decrease wait times per zoom/load instance
-describe/define "event" with parentesis of movment def (lines 58-101)
+-remove zoom/load ability
+-user Input for what equation to use on render instance
 
 FINISHED:
 popup
