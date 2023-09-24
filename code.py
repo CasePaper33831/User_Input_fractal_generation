@@ -1,13 +1,15 @@
 '''
 TODO: 
-user Input for what equation to use on render instance
+debugging and making code SO MUCH faster
+From dev: Am well aware that this code is beyond slow lol. If you wanna help, feel free
+
 
 FINISH:
 remove zoom/load ability
 popup
 load fractal
-arrows for navigation
-zoom function
+arrows for navigation, zoom function (NOW SINCE REMOVED)
+user input for fractal math equation
 '''
 import tkinter as tk
 import matplotlib.pyplot as plt
@@ -18,20 +20,20 @@ x_min, x_max, y_min, y_max = -2.0, 1.0, -1.5, 1.5
 zoom_factor = 1.1
 pan_step = 0.1
 
-
+equation_fractal = input("Please input the equation you wish for the fractal: ")
 canvas_widget = None
 
 def mandelbrot(c, max_iter):
     z = 0
     n = 0
     while abs(z) <= 2 and n < max_iter:
-        z = z * z + c
-        n += 1
+       equation_fractal
+    n += 1
     return n
 
 def create_mandelbrot(width, height, max_iter):
     global canvas_widget
-    fig, ax = plt.subplots(figsize=(width / 80, height / 80), dpi=30)
+    fig, ax = plt.subplots(figsize=(width / 100, height / 100), dpi=100)
     x, y = np.linspace(x_min, x_max, width), np.linspace(y_min, y_max, height)
     X, Y = np.meshgrid(x, y)
     C = X + 1j * Y
@@ -41,17 +43,14 @@ def create_mandelbrot(width, height, max_iter):
         for j in range(height):
             Z[i, j] = mandelbrot(C[i, j], max_iter)
 
-    # Rotate the image 90 degrees to the right
-    Z = np.rot90(Z, k=3)
-
     ax.imshow(Z.T, extent=(x_min, x_max, y_min, y_max), cmap='hot', origin='lower')
     ax.set_title("Mandelbrot Set")
     ax.axis('off')
 
     canvas = FigureCanvasTkAgg(fig, master=popup)
     canvas_widget = canvas.get_tk_widget()
-    canvas_widget.pack()
-
+    canvas_widget.pack(fill=tk.BOTH, expand=True)
+    canvas.draw()
 
     popup.geometry(f"{width}x{height}")
 
