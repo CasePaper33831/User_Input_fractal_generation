@@ -1,6 +1,6 @@
 '''
 TODO: 
-debug, figure out how to make equation so fractal loads every time
+figure how fractal can load under equations (AKA: parse the thing)
 
 
 FINISH:
@@ -20,14 +20,12 @@ iterations = 150
 equation_fractal = input("Please input the equation you wish for the fractal: ")
 
 def mandelbrot(c, z):
-    global iterations
     count = 0
-    for a in range(iterations):
+    while count < iterations and abs(z) < 2:
         equation_fractal
         count += 1
-        if(abs(z) > 4):
-            break
     return count
+
 print("Please wait for fractal render!")
 
 def mandelbrot_set(x, y):
@@ -45,7 +43,8 @@ y = np.linspace(-1, 1, cols)
 
 m = mandelbrot_set(x, y)
 
-plt.imshow(m.T, cmap = "magma")
+plt.imshow(m.T, cmap="magma")
 plt.axis("off")
 plt.savefig('mandelbrot_set.png', dpi=300, bbox_inches='tight')
 plt.show()
+print("fractal loaded!")
