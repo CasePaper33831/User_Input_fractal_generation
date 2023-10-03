@@ -1,6 +1,6 @@
 '''
 TODO: 
-figure how fractal can load under equations (AKA: parse the thing)
+figure how fractal can load under equations (???AKA: parse the thing???)
 
 
 FINISH:
