@@ -1,7 +1,6 @@
 '''
 TODO: 
-figure how fractal can load under equations (???AKA: parse the thing???)
-
+parsing???
 
 FINISH:
 remove zoom/load ability
@@ -9,16 +8,17 @@ popup
 load fractal
 arrows for navigation, zoom function (NOW SINCE REMOVED)
 user input for fractal math equation
+figure how fractal can load under equations (interior one color theme, exterior different)
 '''
 import numpy as np
 import matplotlib.pyplot as plt
 
 rows = 3000
 cols = 3000
-iterations = 150
+iterations = 500
 
 equation_fractal = input("Please input the equation you wish for the fractal: ")
-
+dpi_amount = int(input("Please input the dots per square inch for the fractal rendering in numbers, no comas: "))
 def mandelbrot(c, z):
     count = 0
     while count < iterations and abs(z) < 2:
@@ -43,8 +43,18 @@ y = np.linspace(-1, 1, cols)
 
 m = mandelbrot_set(x, y)
 
-plt.imshow(m.T, cmap="magma")
+cmap_inside = plt.get_cmap("inferno")
+cmap_outside = plt.get_cmap("viridis")
+
+inside_mask = m < iterations
+
+m_inside = np.ma.masked_array(m, mask=~inside_mask)
+m_outside = np.ma.masked_array(m, mask=inside_mask)
+
+
+plt.imshow(m_inside.T, cmap=cmap_inside)
+plt.imshow(m_outside.T, cmap=cmap_outside)
 plt.axis("off")
-plt.savefig('mandelbrot_set.png', dpi=300, bbox_inches='tight')
+plt.savefig('mandelbrot_set.png', dpi = dpi_amount, bbox_inches='tight')
 plt.show()
-print("fractal loaded!")
+print("Fractal loaded!")
