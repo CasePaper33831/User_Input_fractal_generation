@@ -2,6 +2,7 @@
 TODO: 
 -make sure fractal equations can load besides Mandelbrot set
 -user input for row/cols, iteration
+-make the rendered image is larger
 
 FINISH:
 remove zoom/load ability
