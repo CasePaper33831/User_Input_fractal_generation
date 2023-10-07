@@ -1,6 +1,7 @@
 '''
 TODO: 
-parsing???
+-make sure fractal equations can load besides Mandelbrot set
+-user input for row/cols, iteration
 
 FINISH:
 remove zoom/load ability
